@@ -37,15 +37,21 @@ class Leaderboard extends Component {
 
     render() {
         return (
-            <div className={styles.leaderboard}>
-                <Header/>
-                <div className={styles.personalRanking}>
-                    <h3>This is where you stand</h3>
-                    <UserCard user={this.state.userProfile}/>
-                </div>
-                <div className={styles.generalRanking}>
-                    <h3>This is the general ranking</h3>
-                    {this.leaderboardList()}
+            <div>
+                <Header />
+                <div className={styles.leaderboard}>
+                    <div>
+                        <h3>This is where you stand</h3>
+                        <ul className={styles.personalList}>
+                            <UserCard user={this.state.userProfile}/>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>This is the general ranking</h3>
+                        <ul className={styles.generalList}>
+                            {this.leaderboardList()}
+                        </ul>
+                    </div>
                 </div>
             </div>
         )
