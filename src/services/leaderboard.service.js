@@ -1,7 +1,7 @@
 class LeaderboardService {
     constructor() {
-        this.apiUrl = '//private-4f123-daznleaderboard.apiary-mock.com/';
-        this.leaderboardEndpoint = 'leaderboard';
+        this.apiUrl = '//private-anon-f2fe540f9b-daznleaderboard.apiary-mock.com/dev/';
+        this.leaderboardEndpoint = 'leaderboard/1';
     }
 
     get leaderboardUrl() {
@@ -10,19 +10,6 @@ class LeaderboardService {
 
     get ranking() {
         return fetch(this.leaderboardUrl).then(res => res.json());
-        // return Promise.resolve({
-        //     ranking: [
-        //         {'nick_name': 'test'},
-        //         {'nick_name': 'test2'},
-        //         {'nick_name': 'test3'},
-        //         {'nick_name': 'test4'},
-        //         {'nick_name': 'test5'},
-        //         {'nick_name': 'test6'},
-        //     ],
-        //     user_ranking: {
-        //         'nick_name': 'personal user'
-        //     }
-        // })
     }
 
     get generalRanking() {

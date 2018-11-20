@@ -4,13 +4,15 @@ import styles from './Leaderboard.module.css';
 
 import LeaderboardService from '../../services/leaderboard.service';
 import Header from '../../components/Header/Header';
+import UserCard from '../../components/UserCard/UserCard';
+import UserTable from '../../components/UserTable/UserTable';
 
 class Leaderboard extends Component {
     constructor(props) {
         super(props);
         this.state = {
             generalRanking: null,
-            personalRanking: null,
+            userProfile: null,
         };
         this.leaderboardService = new LeaderboardService();
     }
@@ -21,7 +23,7 @@ class Leaderboard extends Component {
         Promise.all([leaderData, userData]).then(data => {
             this.setState({
                 generalRanking: data[0],
-                personalRanking: data[1],
+                userProfile: data[1],
             })
         })
     }
@@ -30,16 +32,7 @@ class Leaderboard extends Component {
         if (!this.state.generalRanking) {
             return null;
         }
-        return this.state.generalRanking.map(entry => {
-            return <li key={entry.id}>{entry.nick_name}</li>
-        })
-    }
-
-    personalList() {
-        if (!this.state.personalRanking) {
-            return null;
-        }
-        return <li>{this.state.personalRanking.nick_name}</li>
+        return <UserTable userList={this.state.generalRanking}/>
     }
 
     render() {
@@ -49,7 +42,7 @@ class Leaderboard extends Component {
                 <div>
                     <h3>This is where you stand</h3>
                     <ul className={styles.personalList}>
-                        {this.personalList()}
+                        <UserCard user={this.state.userProfile}/>
                     </ul>
                 </div>
                 <div>
