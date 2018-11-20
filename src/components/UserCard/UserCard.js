@@ -19,11 +19,6 @@ class UserCard extends Component {
             return null;
         }
 
-        let backgroundStyle = {
-            color: '#fff',
-            background: 'url(' + this.props.user.profile_pic + ') center / cover'
-        };
-
         return (
             <div className={styles.userCard}>
                 <div className={styles.image}>
