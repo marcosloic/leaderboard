@@ -10,7 +10,7 @@ class UserTable extends Component {
     };
 
     static defaultProps = {
-        userList: null
+        userList: []
     };
 
     renderHead() {

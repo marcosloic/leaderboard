@@ -1,23 +1,20 @@
 class LeaderboardService {
     constructor() {
         this.apiUrl = '//private-anon-f2fe540f9b-daznleaderboard.apiary-mock.com/dev/';
-        this.leaderboardEndpoint = 'leaderboard/1';
+        this.leaderboardEndpoint = 'leaderboard';
+        this.leaderboardUrl = `${this.apiUrl}${this.leaderboardEndpoint}`
     }
 
-    get leaderboardUrl() {
-        return `${this.apiUrl}${this.leaderboardEndpoint}`;
+    getRanking(sportId) {
+        return fetch(this.leaderboardUrl + '/' + sportId).then(res => res.json());
     }
 
-    get ranking() {
-        return fetch(this.leaderboardUrl).then(res => res.json());
+    getGeneralRanking(sportId) {
+        return this.getRanking(sportId).then(data => data.ranking);
     }
 
-    get generalRanking() {
-        return this.ranking.then(data => data.ranking);
-    }
-
-    get personalRanking() {
-        return this.ranking.then(data => data.user_ranking);
+    getPersonalRanking(sportId) {
+        return this.getRanking(sportId).then(data => data.user_ranking);
     }
 }
 
