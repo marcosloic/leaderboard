@@ -1,3 +1,7 @@
 .userTable {
     width: 50vw;
 }
+
+.userTable img {
+    border-radius: 50%;
+}
