@@ -1,21 +1,73 @@
 header {
     background-color: #F5F5F5;
     border-radius: 5px 5px 0 0;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.branding {
     display: flex;
     justify-content: left;
     align-items: center;
-    padding: 1rem;
 }
 
-header img {
+.branding img {
     width: 36px;
     height: 43px;
     margin-right: 0.8rem;
     filter: grayscale(100%);
 }
 
-header h1 {
+.branding h1 {
     color: #676A6C;
     font-size: 2.5rem;
     margin: 0;
+}
+
+.controls label {
+    margin-right: 1rem;
+    color: #676A6C;
+}
+
+.controls select {
+    cursor: pointer;
+    margin-right: 2rem;
+    padding: 0.8rem;
+    width: 200px;
+    font-size: 1rem;
+    -webkit-appearance: none;
+    /* background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right transparent; */
+    background-image:
+        linear-gradient(45deg, transparent 50%, gray 50%),
+        linear-gradient(135deg, gray 50%, transparent 50%),
+        linear-gradient(to right, #ccc, #ccc);
+    background-position:
+        calc(100% - 20px) calc(1em + 2px),
+        calc(100% - 15px) calc(1em + 2px),
+        calc(100% - 2.5em) 0.5em;
+    background-size:
+        5px 5px,
+        5px 5px,
+        1px 1.5em;
+    background-repeat: no-repeat;
+    outline: none;
+}
+
+.controls button {
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: #676A6C;
+    cursor: pointer;
+    padding: 0;
+    margin: 0 0.5rem;
+}
+
+.controls button:nth-child(4) {
+    color: black;
+    font-weight: bold;
+    text-decoration: underline;
 }
