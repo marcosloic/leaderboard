@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { userPropType } from '../propTypes/user.proptype';
 
+import styles from './UserTable.module.css';
+
 class UserTable extends Component {
     static propTypes = {
         userList: PropTypes.arrayOf(userPropType)
@@ -30,7 +32,7 @@ class UserTable extends Component {
             <tbody>
             {this.props.userList.map(user => {
                 return (
-                    <tr>
+                    <tr key={user.id}>
                         <th>
                             <img src={user.profile_pic}
                                  alt={user.nick_name}
@@ -48,8 +50,12 @@ class UserTable extends Component {
     }
 
     render() {
+        const classN = [
+            styles.userTable,
+            'mdl-data-table mdl-shadow--2dp'
+        ].join(' ');
         return (
-            <table className="mdl-data-table mdl-shadow--2dp">
+            <table className={classN}>
                 {this.renderHead()}
                 {this.renderBody()}
             </table>

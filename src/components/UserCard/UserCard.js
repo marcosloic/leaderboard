@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { userPropType } from '../propTypes/user.proptype';
 
+import styles from './UserCard.module.css';
+
 class UserCard extends Component {
     static propTypes = {
         user: userPropType
@@ -23,11 +25,12 @@ class UserCard extends Component {
         };
 
         return (
-            <div className="userCard demo-card-square mdl-card mdl-shadow--2dp">
-                <div className="mdl-card__title mdl-card--expand" style={backgroundStyle}>
-                    <h2 className="mdl-card__title-text">Hey {user.nick_name}</h2>
+            <div className={styles.userCard}>
+                <div className={styles.image}>
+                    <img src={user.profile_pic} alt={user.id} />
                 </div>
                 <div className="mdl-card__supporting-text">
+                    <h4>Hey {user.nick_name}</h4>
                     You currently rank {user.ranking}st. Good job!
                 </div>
             </div>
