@@ -38,18 +38,14 @@ class Leaderboard extends Component {
     render() {
         return (
             <div>
-                <Header />
+                <Header/>
                 <div>
                     <h3>This is where you stand</h3>
-                    <ul className={styles.personalList}>
-                        <UserCard user={this.state.userProfile}/>
-                    </ul>
+                    <UserCard user={this.state.userProfile}/>
                 </div>
                 <div>
                     <h3>This is the general ranking</h3>
-                    <ul className={styles.generalList}>
-                        {this.leaderboardList()}
-                    </ul>
+                    {this.leaderboardList()}
                 </div>
             </div>
         )
