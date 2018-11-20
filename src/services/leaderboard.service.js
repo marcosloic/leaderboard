@@ -1,6 +1,6 @@
 class LeaderboardService {
     constructor() {
-        this.apiUrl = ' http://private-4f123-daznleaderboard.apiary-mock.com/';
+        this.apiUrl = '//private-4f123-daznleaderboard.apiary-mock.com/';
         this.leaderboardEndpoint = 'leadership';
     }
 
