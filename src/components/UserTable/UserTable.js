@@ -18,9 +18,8 @@ class UserTable extends Component {
             <thead>
             <tr>
                 <th className="mdl-data-table__cell--non-numeric"></th>
-                <th>Id</th>
-                <th>Name</th>
                 <th>Ranking</th>
+                <th>Name</th>
                 <th>Points</th>
             </tr>
             </thead>
@@ -36,11 +35,10 @@ class UserTable extends Component {
                         <th>
                             <img src={user.profile_pic}
                                  alt={user.nick_name}
-                            />
+                                 />
                         </th>
-                        <th>{user.id}</th>
-                        <th>{user.nick_name}</th>
                         <th>{user.ranking}</th>
+                        <th>{user.nick_name}</th>
                         <th>{user.points}</th>
                     </tr>
                 )

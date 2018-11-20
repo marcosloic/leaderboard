@@ -2,6 +2,35 @@
     width: 50vw;
 }
 
+.userTable thead {
+    background-color: #F5F5F5;
+}
+
+.userTable thead th, .userTable tbody th {
+    text-align: center;
+}
+
+.userTable tbody tr:nth-child(1) {
+    background-color: #FFD54F;
+}
+
+.userTable tbody tr:nth-child(2) {
+    background-color: #FFE082;
+}
+
+.userTable tbody tr:nth-child(3) {
+    background-color: #FFECB3;
+}
+
+.userTable tbody th {
+    padding: 0.5rem 0;
+    vertical-align: unset;
+    height: unset;
+    font-size: unset;
+}
+
 .userTable img {
     border-radius: 50%;
+    width: 50px;
+    padding-top: 0.2rem;
 }

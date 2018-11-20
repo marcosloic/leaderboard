@@ -41,13 +41,11 @@ class Leaderboard extends Component {
                 <Header />
                 <div className={styles.leaderboard}>
                     <div>
-                        <h3>This is where you stand</h3>
                         <ul className={styles.personalList}>
                             <UserCard user={this.state.userProfile}/>
                         </ul>
                     </div>
                     <div>
-                        <h3>This is the general ranking</h3>
                         <ul className={styles.generalList}>
                             {this.leaderboardList()}
                         </ul>
