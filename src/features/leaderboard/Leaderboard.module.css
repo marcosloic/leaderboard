@@ -1,11 +1,13 @@
-.personalList {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+.leaderboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.generalList {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+.personalRanking {
+
+}
+
+.generalRanking {
+
 }
