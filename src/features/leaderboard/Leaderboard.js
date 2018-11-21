@@ -9,7 +9,7 @@ import UserTable from '../../components/UserTable/UserTable';
 
 function shuffleGeneral(data) {
     const min = 10000;
-    const max = 100000;
+    const max = 20000;
     return data
         .map(entry => {
             entry.points = Math.floor(Math.random() * (max - min) + min);
@@ -32,16 +32,44 @@ class Leaderboard extends Component {
             userProfile: null,
         };
         this.leaderboardService = new LeaderboardService();
+        window.setInterval(this.increasePoints.bind(this), 1000);
     }
 
     componentDidMount() {
         const leaderData = this.leaderboardService.generalRanking;
         const userData = this.leaderboardService.personalRanking;
         Promise.all([leaderData, userData]).then(data => {
+            const newData = data[0].map(entry => {
+                entry.points = Math.floor(Math.random() * (20000 - 10000) + 10000);
+                return entry;
+            });
             this.setState({
-                generalRanking: data[0],
+                generalRanking: newData,
                 userProfile: data[1],
             })
+        })
+    }
+
+    increasePoints() {
+        const newData = this.state.generalRanking
+            .map(entry => {
+                const shouldAddPoints = Math.floor((Math.random() * 5) + 1);
+                const pointsToAdd = Math.floor((Math.random() * 1000) + 1);
+                if (shouldAddPoints === 5) {
+                    entry.points += pointsToAdd;
+                }
+                return entry
+            })
+            .sort((a, b) => {
+                return b.points - a.points;
+            })
+            .map((entry, idx) => {
+                entry.ranking = idx + 1;
+                return entry;
+            });
+
+        this.setState({
+            generalRanking: newData
         })
     }
 
