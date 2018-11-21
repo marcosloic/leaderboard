@@ -26,7 +26,7 @@ class UserCard extends Component {
                 </div>
                 <div className="mdl-card__supporting-text">
                     <h4>Hey {user.nick_name}</h4>
-                    You currently rank {user.ranking}st. Good job!
+                    You currently rank {user.ranking}. Good job!
                 </div>
             </div>
         )
