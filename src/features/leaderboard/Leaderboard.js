@@ -7,6 +7,23 @@ import Header from '../../components/Header/Header';
 import UserCard from '../../components/UserCard/UserCard';
 import UserTable from '../../components/UserTable/UserTable';
 
+function shuffleGeneral(data) {
+    const min = 10000;
+    const max = 100000;
+    return data
+        .map(entry => {
+            entry.points = Math.floor(Math.random() * (max - min) + min);
+            return entry;
+        })
+        .sort((a, b) => {
+            return b.points - a.points;
+        })
+        .map((entry, idx) => {
+            entry.ranking = idx + 1;
+            return entry;
+        })
+}
+
 class Leaderboard extends Component {
     constructor(props) {
         super(props);
@@ -35,10 +52,23 @@ class Leaderboard extends Component {
         return <UserTable userList={this.state.generalRanking}/>
     }
 
+    shuffleUserList() {
+        const newUserProfile = {
+            ...this.state.userProfile,
+            ranking: Math.floor(Math.random() * (200 - 120) + 120)
+        };
+        this.setState({
+            generalRanking: shuffleGeneral(this.state.generalRanking),
+            userProfile: newUserProfile
+        });
+    }
+
     render() {
         return (
             <div>
-                <Header />
+                <Header
+                    onValueSelected={this.shuffleUserList.bind(this)}
+                />
                 <div className={styles.leaderboard}>
                     <div>
                         <ul className={styles.personalList}>
